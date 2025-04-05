@@ -1,0 +1,69 @@
+Périmètre du projet :
+
+Etape 1 : 
+
+ Format(s) d’entrée supportés dans ton Fake News Detector (v1) :
+Texte brut : l’utilisateur entre manuellement un texte.
+
+URL d’un article → le système extrait le texte automatiquement.
+
+Fichiers .txt
+
+Fichiers .pdf → extraction de texte avec pdfminer.six ou PyMuPDF.
+
+Etape 2:
+
+Partie IA
+
+BERT roBERTa
+transformers + PyTorch ou TensorFlow, scikit-learn
+Classification binaire (real vs fake)
+
+Backend : 
+FrameWork : FastAPI
+
+Traitement des fichiers : 
+.txt -> juste open() standard
+.pdf -> pdfplumber ou PyMuPDF
+
+Scraper les URLs → newspaper3k (très simple)
+
+ Ce que tu peux ajouter plus tard (bonus CV)
+Interface React.js
+
+Feedback utilisateur + base de données
+
+Déploiement cloud (avec Docker)
+
+Explicabilité des prédictions (LIME, SHAP)
+
+Support de l’anglais
+
+Etape 3: 
+
+ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset
+
+contenu : fake.csv,true.csv news
+
+ Partie plsu tard :
+LIAR Dataset
+Lien : https://www.cs.ucsb.edu/~william/data/liar_dataset.zip
+
+Contenu :
+
+Petites phrases politiques
+
+6 niveaux de vérité (pants-fire, false, barely-true, etc.)
+
+Annoté manuellement par des fact-checkers
+
+ Intéressant si tu veux prédire plus finement qu’un simple vrai/faux
+
+3. FakeNewsNet
+Lien : https://github.com/KaiDMML/FakeNewsNet
+
+Contient les articles + métadonnées sociales (tweets, utilisateurs)
+
+Plus complexe, mais plus riche → bon pour une deuxième phase
+
+Etape 4 :

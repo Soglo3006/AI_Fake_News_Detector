@@ -1,0 +1,67 @@
+Nettoyage des données:
+
+fake_news_train.csv → entraînement
+
+fake_news_val.csv → validation
+
+fake_news_test.csv → test
+
+Pandas : 
+
+concat => combine deux dataframe ensemble. Il faut que les deux ont la meme colonne pour aboutir a la combinaison.
+
+dataframe.sample(n, frac, replace, weights, random_state, axis) => retourne une ligne aleatoire du dataframe
+
+reset_index => reintialise l'index
+
+TOP 20 à maîtriser (essentielles en pratique)
+Inspection et exploration
+head() / tail() — voir rapidement les premières/dernières lignes
+
+info() — résumé du DataFrame (types, valeurs nulles)
+
+describe() — statistiques de base (moyenne, min, max, etc.)
+
+shape / columns / dtypes — structure du DataFrame
+
+Nettoyage des données
+drop() — supprimer des lignes ou colonnes
+
+dropna() / fillna() — gérer les valeurs manquantes
+
+duplicated() / drop_duplicates() — trouver/supprimer les doublons
+
+astype() — convertir les types de colonnes
+
+replace() — remplacer certaines valeurs
+
+Transformation
+apply() — appliquer une fonction sur les colonnes/lignes
+
+map() / applymap() — appliquer une fonction sur chaque élément
+
+groupby() — regrouper les données pour faire des agrégations
+
+agg() / aggregate() — appliquer des fonctions d’agrégation
+
+merge() / join() / concat() — combiner plusieurs DataFrames
+
+sort_values() / sort_index() — trier les données
+
+Sélection / Filtrage
+loc[] / iloc[] — accéder aux lignes/colonnes
+
+query() — filtrage avec des conditions logiques
+
+isin() — filtrer avec des valeurs spécifiques
+
+Bonus (à connaître selon les cas)
+pivot() / pivot_table() — réorganiser les données
+
+melt() — faire passer les colonnes en lignes (inverse de pivot)
+
+value_counts() — compter les occurrences uniques
+
+corr() — corrélation entre colonnes numériques
+
+reset_index() / set_index() — gérer les index

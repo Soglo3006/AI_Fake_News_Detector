@@ -1,0 +1,57 @@
+AI FAKE NEWS DETECTOR
+
+Étape 1 : 
+Langue : pn va commencer en Français ensuite en anglais. Donc on va inclure les deux dans le final du projet 
+
+Type de fake news ciblées : politique, santé, finance, ou général ? Je veux que ce soit général
+
+Format d'entrée : texte brut ? URL d'article ? on peut faire les deux ou meme plus si c'est le cas
+
+
+Étape 2 : Choix des outils / technologies
+Modèle IA : BERT ou RoBERTa fine-tuné pour la classification binaire (réel vs fake).
+
+Librairies : Transformers (Hugging Face), PyTorch ou TensorFlow, scikit-learn. 
+On va utiliser Pytorch ou TensorFlow
+
+Backend : FastAPI (rapide, moderne et Python natif).
+
+Server : Node.js
+
+Frontend : React.js (bonne UX, facile à connecter via API).
+
+Base de données : MongoDB ou PostgreSQL (pour stocker les prédictions, historiques, feedbacks).
+
+Étape 3 : Dataset
+Tu peux commencer avec :
+
+LIAR Dataset (courtes phrases labellisées).
+
+FakeNewsNet (plus long articles avec contexte social).
+
+Kaggle Fake News Dataset.
+
+Étape 4 : Pipeline IA
+Prétraitement du texte : nettoyage, tokenisation.
+
+Fine-tuning d’un modèle pré-entraîné (BERT, DistilBERT…).
+
+Évaluation avec accuracy, F1-score, matrice de confusion.
+
+Interprétabilité : pourquoi l’article est considéré fake (via LIME ou SHAP).
+
+Étape 5 : Développement web
+Création de l’API /analyze qui retourne un score de "fakeness".
+
+Interface React avec un champ pour coller un article et voir le résultat.
+
+Affichage du score de prédiction + option de feedback utilisateur.
+
+💡 Tu veux quoi maintenant ?
+On peut :
+
+Lancer ensemble le projet (je t’aide à le structurer en fichiers).
+
+Commencer par entraîner le modèle IA.
+
+Travailler sur la partie frontend + backend.
