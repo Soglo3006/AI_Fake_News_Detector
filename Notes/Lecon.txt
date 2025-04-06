@@ -15,6 +15,7 @@ dataframe.sample(n, frac, replace, weights, random_state, axis) => retourne une 
 reset_index => reintialise l'index
 
 TOP 20 à maîtriser (essentielles en pratique)
+
 Inspection et exploration
 head() / tail() — voir rapidement les premières/dernières lignes
 
