@@ -1,0 +1,49 @@
+Tokenizer Notes 
+
+Les tokenizers sont l'un des composants clés du pipeline NLP. Leur objectif est de traduire le texte en données exploitables par le modèle.
+
+Dans les tâches de TALN, les données généralement traitées sont du texte brut. Voici un exemple : Jim Henson était un marionnettiste
+
+Cependant, les modèles ne peuvent traiter que des nombres ; il faut donc trouver un moyen de convertir le texte brut en nombres. C'est ce que font les tokenizers.
+
+BertTokenizer — c’est quoi ?
+C’est la classe du tokenizer associée au modèle BERT.
+
+Son rôle est de transformer du texte brut (comme une phrase) en tokens numériques que le modèle comprend.
+
+Exemple : "This is fake" → [101, 2023, 2003, 10948, 102]
+
+.from_pretrained("bert-base-uncased") — ça veut dire quoi ?
+Tu télécharges automatiquement un tokenizer préentraîné compatible avec le modèle BERT.
+
+"bert-base-uncased" veut dire :
+
+bert → modèle BERT standard
+
+base → 12 couches (taille moyenne)
+
+uncased → pas de distinction entre majuscules/minuscules (tout est en minuscules)
+
+Que contient ce tokenizer ?
+Un vocabulaire de tokens (environ 30 000)
+
+Un système de tokenisation sub-word (ex : unbelievable → un, ##believable)
+
+Des fichiers de configuration :
+
+vocab.txt
+
+tokenizer_config.json
+
+special_tokens_map.json
+
+tokenizer("This is fake", padding=True, truncation=True, max_length=512)
+
+Ce qui retourne un dictionnaire avec :
+
+python
+Copier le code
+{
+  'input_ids': [...],         # les IDs des tokens
+  'attention_mask': [...]     # 1 si le token est utile, 0 si c’est du padding
+}

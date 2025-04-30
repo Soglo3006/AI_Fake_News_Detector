@@ -37,4 +37,5 @@ train_df.to_csv("fake_news_train.csv", index=False)
 val_df.to_csv("fake_news_val.csv", index=False)
 test_df.to_csv("fake_news_test.csv", index=False)
 
+data.to_csv("all_the_news.csv", index= False)
 
