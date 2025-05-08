@@ -47,3 +47,81 @@ Copier le code
   'input_ids': [...],         # les IDs des tokens
   'attention_mask': [...]     # 1 si le token est utile, 0 si c’est du padding
 }
+
+
+Trainer n’utilise que des colonnes numériques
+Le Trainer de Hugging Face ne peut pas utiliser directement :
+
+du texte (content)
+
+des chaînes de caractères
+
+Il s’attend à ce que chaque exemple du dataset contienne :
+
+input_ids (entiers)
+
+attention_mask (entiers)
+
+label (entier)
+
+
+train_dataset.set_format("torch")
+🧠 Que fait cette ligne ?
+✅ Elle convertit ton dataset Hugging Face en format compatible avec PyTorch
+Concrètement :
+
+Avant, tes données sont stockées dans un format interne (Arrow table)
+
+Après .set_format("torch"), chaque élément (comme input_ids, label, etc.) devient un torch.Tensor
+
+Et ça, c’est exactement ce que BERT (et le Trainer) attend comme entrée.
+
+🧪 Exemple :
+Avant set_format("torch"), un exemple de train_dataset[0] peut être :
+
+python
+Copier le code
+{
+  'input_ids': [101, 2023, 2003, 1037, 10948, 2739, 1012, 102],
+  'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1],
+  'label': 0
+}
+Après set_format("torch") :
+
+python
+Copier le code
+{
+  'input_ids': tensor([101, 2023, 2003, 1037, 10948, 2739, 1012, 102]),
+  'attention_mask': tensor([1, 1, 1, 1, 1, 1, 1, 1]),
+  'label': tensor(0)
+}
+💡 Pourquoi c’est obligatoire ?
+Parce que BERT (via PyTorch) s’attend à ce que tout soit en torch.Tensor.
+
+BertForSequenceClassification
+C’est un modèle BERT pré-entraîné, spécialement conçu pour la classification de séquences.
+
+
+Tu dois comprendre quelques bases minimales pour :
+Créer un tensor
+
+Passer des données dans un modèle avec model(input_ids=..., attention_mask=...)
+
+Lire les prédictions avec torch.argmax(...)
+
+Désactiver le mode entraînement avec model.eval()
+
+Utiliser with torch.no_grad() pour prédire sans calcul inutile
+
+🧠 Étape 2 — Créer un script de prédiction
+Un script predict.py qui :
+
+Charge le modèle et le tokenizer,
+
+Prend un fichier .txt (ou .csv) en entrée,
+
+Retourne :
+
+la classe prédite (Fake ou Real),
+
+le score de confiance (softmax du modèle).
