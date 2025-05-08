@@ -36,6 +36,3 @@ val_df, test_df = train_test_split(temp_df, test_size=0.5, stratify=temp_df["lab
 train_df.to_csv("fake_news_train.csv", index=False)
 val_df.to_csv("fake_news_val.csv", index=False)
 test_df.to_csv("fake_news_test.csv", index=False)
-
-data.to_csv("all_the_news.csv", index= False)
-
